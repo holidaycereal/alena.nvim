@@ -135,9 +135,9 @@ set_hl('@comment.todo',          { fg = hl.bg, bg = hl.teal, bold = true })
 set_hl('@comment.note',          { fg = hl.bg, bg = hl.teal, bold = true })
 set_hl('Debug',                  { fg = hl.teal })
 -- these are for annotations and gotos and stuff idk
-set_hl('@attribute',             { fg = hl.grey_2, bg = hl.grey_5 })
-set_hl('@attribute.builtin',     { fg = hl.grey_2, bg = hl.grey_5 })
-set_hl('@label',                 { fg = hl.grey_2, bg = hl.grey_5 })
+set_hl('@attribute',             { fg = hl.grey_1, bg = hl.grey_5 })
+set_hl('@attribute.builtin',     { fg = hl.grey_1, bg = hl.grey_5 })
+set_hl('@label',                 { fg = hl.grey_1, bg = hl.grey_5 })
 
 -- MARKUP
 --
