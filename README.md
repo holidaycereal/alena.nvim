@@ -4,8 +4,9 @@ my personal light colourscheme for neovim!
 
 designed to work best with `termguicolors` & `tree-sitter`.
 
-## features:
+## features
 - thoughtful, sensible colour choices
+- conservative use of colours; easy for your brain
 - the only good light colourscheme ever made
 - under 80 columns wide!
 - ALMOST white background
