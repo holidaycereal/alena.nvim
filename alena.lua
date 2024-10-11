@@ -38,22 +38,6 @@ end
 
 -- PROGRAMMING
 
--- variables and functions
-set_hl('Identifier',                   { fg = hl.fg })
-set_hl('@variable',                    { fg = hl.fg })
-set_hl('@variable.builtin',            { fg = hl.fg })
-set_hl('@variable.parameter',          { fg = hl.fg })
-set_hl('@variable.parameter.builtin',  { fg = hl.fg })
-set_hl('@variable.member',             { fg = hl.fg })
-set_hl('Function',                     { fg = hl.fg })
-set_hl('@function',                    { fg = hl.fg })
-set_hl('@function.builtin',            { fg = hl.fg })
-set_hl('@function.call',               { fg = hl.fg })
-set_hl('@function.macro',              { fg = hl.fg })
-set_hl('@function.method',             { fg = hl.fg })
-set_hl('@function.method.call',        { fg = hl.fg })
-set_hl('@constructor',                 { fg = hl.fg })
-
 -- keywords
 set_hl('Statement',                    { fg = hl.blue })
 set_hl('Conditional',                  { fg = hl.blue })
@@ -117,6 +101,22 @@ set_hl('@string.special.symbol', { fg = hl.fg })
 set_hl('@string.special.path',   { fg = hl.fg })
 set_hl('@string.special.url',    { fg = hl.fg })
 
+-- variables and functions
+set_hl('Identifier',                   { fg = hl.fg })
+set_hl('@variable',                    { fg = hl.fg })
+set_hl('@variable.builtin',            { fg = hl.fg })
+set_hl('@variable.parameter',          { fg = hl.fg })
+set_hl('@variable.parameter.builtin',  { fg = hl.fg })
+set_hl('@variable.member',             { fg = hl.fg })
+set_hl('Function',                     { fg = hl.fg })
+set_hl('@function',                    { fg = hl.fg })
+set_hl('@function.builtin',            { fg = hl.fg })
+set_hl('@function.call',               { fg = hl.fg })
+set_hl('@function.macro',              { fg = hl.fg })
+set_hl('@function.method',             { fg = hl.fg })
+set_hl('@function.method.call',        { fg = hl.fg })
+set_hl('@constructor',                 { fg = hl.fg })
+
 -- symbols
 set_hl('Operator',               { fg = hl.fg })
 set_hl('@operator',              { fg = hl.fg })
@@ -142,9 +142,9 @@ set_hl('@comment.note',          { fg = hl.bg, bg = hl.teal, bold = true })
 set_hl('Debug',                  { fg = hl.teal, bold = true })
 
 -- labels
-set_hl('@attribute',             { fg = hl.grey_1, bg = hl.grey_5 })
-set_hl('@attribute.builtin',     { fg = hl.grey_1, bg = hl.grey_5 })
-set_hl('@label',                 { fg = hl.grey_1, bg = hl.grey_5 })
+set_hl('@attribute',             { italic = true })
+set_hl('@attribute.builtin',     { italic = true })
+set_hl('@label',                 { italic = true })
 
 -- MARKUP
 
