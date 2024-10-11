@@ -8,26 +8,27 @@ if vim.fn.exists("syntax_on") then
 end
 
 local hl = {
-  bg =       '#f6f6f6',
-  fg =       '#000000',
-  grey_1 =   '#545454',
-  grey_2 =   '#808080',
-  grey_3 =   '#a9a9a9',
-  grey_4 =   '#bcbcbc',
-  grey_5 =   '#d5d5d5',
-  d_white =  '#eaeaea',
-  l_red =    '#ffc0b9',
-  yellow =   '#f5c71a',
+  bg = '#f6f6f6',
+  fg = '#000000',
+  grey_1 = '#545454',
+  grey_2 = '#808080',
+  grey_3 = '#a9a9a9',
+  grey_4 = '#bcbcbc',
+  grey_5 = '#d5d5d5',
+  d_white = '#eaeaea',
+  l_red = '#ffc0b9',
+  yellow = '#f5c71a',
   l_yellow = '#ffeca4',
-  l_green =  '#b3f6c0',
-  cyan =     '#a2efef',
-  l_blue =   '#d8e8fc',
-  blue =     '#0d47a1',
-  magenta =  '#8b008b',
-  red =      '#ac0010',
-  orange =   '#cb440b',
-  green =    '#2e742a',
-  teal =     '#007474',
+  l_green = '#b3f6c0',
+  cyan = '#a2efef',
+  l_blue = '#d8e8fc',
+  blue = '#0d47a1',
+  magenta = '#8b008b',
+  red = '#ac0010',
+  orange = '#cf5400',
+  brown = '#80442b',
+  green = '#2e742a',
+  teal = '#007474',
 }
 
 -- keeping it under 80 columns ^.^
@@ -36,8 +37,8 @@ local function set_hl(group, options)
 end
 
 -- PROGRAMMING
---
--- variables and functions are black because they're important
+
+-- variables and functions
 set_hl('Identifier',                   { fg = hl.fg })
 set_hl('@variable',                    { fg = hl.fg })
 set_hl('@variable.builtin',            { fg = hl.fg })
@@ -52,7 +53,8 @@ set_hl('@function.macro',              { fg = hl.fg })
 set_hl('@function.method',             { fg = hl.fg })
 set_hl('@function.method.call',        { fg = hl.fg })
 set_hl('@constructor',                 { fg = hl.fg })
--- keywords are blue because they're special
+
+-- keywords
 set_hl('Statement',                    { fg = hl.blue })
 set_hl('Conditional',                  { fg = hl.blue })
 set_hl('Repeat',                       { fg = hl.blue })
@@ -79,7 +81,8 @@ set_hl('@keyword.conditional',         { fg = hl.blue })
 set_hl('@keyword.conditional.ternary', { fg = hl.blue })
 set_hl('@keyword.directive',           { fg = hl.blue })
 set_hl('@keyword.directive.define',    { fg = hl.blue })
--- modules and types are magenta
+
+-- modules and types
 set_hl('@module',                { fg = hl.magenta })
 set_hl('@module.builtin',        { fg = hl.magenta })
 set_hl('Type',                   { fg = hl.magenta })
@@ -89,30 +92,32 @@ set_hl('Structure',              { fg = hl.magenta })
 set_hl('@type',                  { fg = hl.magenta })
 set_hl('@type.builtin',          { fg = hl.magenta })
 set_hl('@type.definition',       { fg = hl.magenta })
--- known values are orange
+
+-- known values
 set_hl('Number',                 { fg = hl.orange })
 set_hl('@number',                { fg = hl.orange })
 set_hl('@number.float',          { fg = hl.orange })
 set_hl('Boolean',                { fg = hl.orange })
 set_hl('@boolean',               { fg = hl.orange })
-set_hl('Constant',               { fg = hl.orange })
-set_hl('@constant',              { fg = hl.orange })
-set_hl('@constant.macro',        { fg = hl.orange })
+set_hl('Character',              { fg = hl.orange })
+set_hl('@character',             { fg = hl.orange })
+set_hl('Constant',               { fg = hl.brown })
+set_hl('@constant',              { fg = hl.brown })
+set_hl('@constant.macro',        { fg = hl.brown })
 set_hl('@constant.builtin',      { fg = hl.orange })
--- strings are green because it feels right
+
+-- strings
 set_hl('String',                 { fg = hl.green })
 set_hl('@string',                { fg = hl.green })
 set_hl('@string.documentation',  { fg = hl.green })
--- or black if the character will print something other than itself
 set_hl('@string.regexp',         { fg = hl.fg })
 set_hl('@string.escape',         { fg = hl.fg })
 set_hl('@string.special',        { fg = hl.fg })
 set_hl('@string.special.symbol', { fg = hl.fg })
 set_hl('@string.special.path',   { fg = hl.fg })
 set_hl('@string.special.url',    { fg = hl.fg })
-set_hl('Character',              { fg = hl.fg })
-set_hl('@character',             { fg = hl.fg })
--- symbols are black
+
+-- symbols
 set_hl('Operator',               { fg = hl.fg })
 set_hl('@operator',              { fg = hl.fg })
 set_hl('Delimiter',              { fg = hl.fg })
@@ -122,26 +127,27 @@ set_hl('@punctuation.special',   { fg = hl.fg })
 set_hl('Special',                { fg = hl.fg })
 set_hl('SpecialChar',            { fg = hl.fg })
 set_hl('@character.special',     { fg = hl.fg })
--- comments are grey
+
+-- comments
 set_hl('Comment',                { fg = hl.grey_2 })
 set_hl('SpecialComment',         { fg = hl.grey_2 })
 set_hl('@comment',               { fg = hl.grey_2 })
 set_hl('@comment.documentation', { fg = hl.grey_2 })
--- colourful special comments
 set_hl('Error',                  { fg = hl.bg, bg = hl.red,  bold = true })
-set_hl('Todo',                   { fg = hl.bg, bg = hl.teal, bold = true })
 set_hl('@comment.error',         { fg = hl.bg, bg = hl.red,  bold = true })
 set_hl('@comment.warning',       { fg = hl.bg, bg = hl.red,  bold = true })
+set_hl('Todo',                   { fg = hl.bg, bg = hl.teal, bold = true })
 set_hl('@comment.todo',          { fg = hl.bg, bg = hl.teal, bold = true })
 set_hl('@comment.note',          { fg = hl.bg, bg = hl.teal, bold = true })
-set_hl('Debug',                  { fg = hl.teal })
--- these are for annotations and gotos and stuff idk
+set_hl('Debug',                  { fg = hl.teal, bold = true })
+
+-- labels
 set_hl('@attribute',             { fg = hl.grey_1, bg = hl.grey_5 })
 set_hl('@attribute.builtin',     { fg = hl.grey_1, bg = hl.grey_5 })
 set_hl('@label',                 { fg = hl.grey_1, bg = hl.grey_5 })
 
 -- MARKUP
---
+
 -- font styles
 set_hl('@markup.strong',         { bold = true })
 set_hl('@markup.italic',         { italic = true })
@@ -154,17 +160,18 @@ set_hl('@markup.heading.3',      { bold = true })
 set_hl('@markup.heading.4',      { bold = true })
 set_hl('@markup.heading.5',      { bold = true })
 set_hl('@markup.heading.6',      { bold = true })
-set_hl('@markup.quote',          { fg = hl.blue })
-set_hl('@markup.math',           { fg = hl.blue })
-set_hl('@markup.link',           { fg = teal, underline = true })
-set_hl('@markup.link.label',     { fg = teal, underline = true })
-set_hl('@markup.link.url',       { fg = teal, underline = true })
-set_hl('@markup.raw',            { fg = hl.blue })
-set_hl('@markup.raw.block',      { fg = hl.blue })
+set_hl('@markup.link',           { fg = blue, underline = true })
+set_hl('@markup.link.label',     { fg = blue, underline = true })
+set_hl('@markup.link.url',       { fg = blue, underline = true })
+set_hl('@markup.raw',            { fg = hl.black })
+set_hl('@markup.raw.block',      { fg = hl.black })
+set_hl('@markup.quote',          { fg = hl.black })
+set_hl('@markup.math',           { fg = hl.black })
 set_hl('@markup.list',           { fg = hl.grey_1 })
 set_hl('@markup.list.checked',   { fg = hl.grey_3 })
 set_hl('@markup.list.unchecked', { fg = hl.grey_1 })
--- only highlight properties in markup languages
+
+-- properties
 set_hl('@property',              { fg = hl.fg })
 set_hl('@property.css',          { fg = hl.blue })
 set_hl('@property.yaml',         { fg = hl.blue })
@@ -178,7 +185,7 @@ set_hl('@tag.delimiter',         { fg = hl.grey_2 })
 set_hl('@tag.delimiter.html',    { fg = hl.grey_2 })
 
 -- USER INTERFACE
---
+
 set_hl('Normal',         { fg = hl.fg, bg = hl.bg })
 set_hl('Ignore',         { fg = hl.fg, bg = hl.bg })
 set_hl('Visual',         { bg = hl.l_blue })
@@ -207,6 +214,7 @@ set_hl('WarningMsg',     { fg = hl.orange, bold = true })
 set_hl('FloatTitle',     { bold = true })
 set_hl('FloatFooter',    { bold = true })
 set_hl('Title',          { bold = true })
+
 -- UI widgets
 set_hl('TabLine',        { fg = hl.grey_1, bg = hl.grey_5 })
 set_hl('TabLineFill',    { bg = hl.bg })
@@ -224,6 +232,7 @@ set_hl('PmenuThumb',     { fg = hl.grey_3, bg = hl.grey_2 })
 set_hl('WildMenu',       { fg = hl.bg,     bg = hl.grey_2 })
 set_hl('WinBar',         { fg = hl.bg,     bg = hl.fg })
 set_hl('WinBarNC',       { fg = hl.grey_1, bg = hl.grey_5 })
+
 -- diff view
 set_hl('DiffAdd',        { bg = hl.l_green })
 set_hl('DiffDelete',     { bg = hl.l_red })
@@ -235,6 +244,7 @@ set_hl('DiffText',       { underline = true })
 set_hl('@diff.plus',     { bg = hl.l_green })
 set_hl('@diff.minus',    { bg = hl.l_red })
 set_hl('@diff.delta',    { bg = hl.cyan })
+
 -- misc
 set_hl('QuickFixLine',   { bg = hl.cyan })
 set_hl('SnippetTabstop', { bg = hl.cyan })
