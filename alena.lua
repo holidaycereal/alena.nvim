@@ -95,9 +95,12 @@ for group, property in pairs(config.highlight) do
 	vim.api.nvim_set_hl(0, group, hl)
 end
 
+-- Set background color
+vim.api.nvim_set_hl(0, "Normal", { fg = config.fg, bg = config.bg })
+
 -- Mappings to real groups
 local mappings = {
-	text = { "Normal", "@property", "@string.regexp", "@string.escape", "@string.special", "@string.special.symbol", "@string.special.path", "@string.special.url", "NormalNC", "NormalFloat", "FloatBorder", "Special", "SpecialChar", "FloatTitle", "FloatFooter" },
+	text = { "@property", "@string.regexp", "@string.escape", "@string.special", "@string.special.symbol", "@string.special.path", "@string.special.url", "NormalNC", "NormalFloat", "FloatBorder", "Special", "SpecialChar", "FloatTitle", "FloatFooter" },
 	invisible = { "Conceal", "Ignore", "TabLineFill" },
 
 	-- Syntax
