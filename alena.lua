@@ -38,6 +38,7 @@ local config = {
 	highlight = {
 		text = {},
 		invisible = { fg = "bg" },
+
 		-- Syntax
 		keywords = { fg = "blue" },
 		types = { fg = "magenta" },
@@ -98,6 +99,7 @@ end
 local mappings = {
 	text = { "Normal", "@property", "@string.regexp", "@string.escape", "@string.special", "@string.special.symbol", "@string.special.path", "@string.special.url", "NormalNC", "NormalFloat", "FloatBorder", "Special", "SpecialChar", "FloatTitle", "FloatFooter" },
 	invisible = { "Conceal", "Ignore", "TabLineFill" },
+
 	-- Syntax
 	keywords = { "Statement", "Conditional", "Repeat", "Label", "Keyword", "Exception", "PreProc", "Include", "Define", "Macro", "PreCondit", "@keyword", "@keyword.coroutine", "@keyword.function", "@keyword.operator", "@keyword.import", "@keyword.type", "@keyword.modifier", "@keyword.repeat", "@keyword.return", "@keyword.debug", "@keyword.exception", "@keyword.conditional", "@keyword.conditional.ternary", "@keyword.directive", "@keyword.directive.define", "@function.builtin" },
 	types = { "Type", "StorageClass", "Structure", "Typedef", "@type", "@type.builtin", "@type.definition", "@module", "@module.builtin" },
