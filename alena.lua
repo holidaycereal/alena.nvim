@@ -1,255 +1,153 @@
 -- colors/alena.lua
+-- vim: noet nowrap
 
+-- Setup
 vim.opt.background = "light"
-
 vim.cmd("hi clear")
-if vim.fn.exists("syntax_on") then
-  vim.cmd("syntax reset")
+if vim.fn.exists("syntax_on")
+	then vim.cmd("syntax reset")
 end
 
-local hl = {
-  bg = '#f6f6f6',
-  fg = '#000000',
-  grey_1 = '#545454',
-  grey_2 = '#808080',
-  grey_3 = '#a9a9a9',
-  grey_4 = '#bcbcbc',
-  grey_5 = '#d5d5d5',
-  d_white = '#eaeaea',
-  l_red = '#ffc0b9',
-  yellow = '#f5c71a',
-  l_yellow = '#ffeca4',
-  l_green = '#b3f6c0',
-  cyan = '#a2efef',
-  l_blue = '#d8e8fc',
-  blue = '#0d47a1',
-  magenta = '#8b008b',
-  red = '#ac0010',
-  orange = '#cf5400',
-  brown = '#80442b',
-  green = '#2e742a',
-  teal = '#007474',
+-- Config tables
+local config = {
+	bg = "#f6f6f6",
+	fg = "#000000",
+
+	grey_1 = "#eaeaea",
+	grey_2 = "#d5d5d5",
+	grey_3 = "#bcbcbc",
+	grey_4 = "#a9a9a9",
+	grey_5 = "#808080",
+	grey_6 = "#545454",
+
+	light_red = "#ffc0b9",
+	light_yellow = "#ffeca4",
+	light_green = "#b3f6c0",
+	light_cyan = "#a2efef",
+	light_blue = "#d8e8fc",
+
+	red = "#ac0010",
+	yellow = "#f5c71a",
+	green = "#2e742a",
+	cyan = "#007474",
+	blue = "#0d47a1",
+	magenta = "#8b008b",
+	orange = "#cc5400",
+	brown = "#80442b",
+	
+	highlight = {
+		text = {},
+		-- Syntax
+		keywords = { fg = "blue" },
+		types = { fg = "magenta" },
+		constants = { fg = "brown" },
+		values = { fg = "orange" },
+		strings = { fg = "green" },
+		variables = {},
+		functions = {},
+		operators = {},
+		punctuation = {},
+		comments = { fg = "grey_5" },
+		annotations = { underline = true },
+		markup_bold = { bold = true },
+		markup_italic = { italic = true },
+		markup_underline = { underline = true },
+		markup_list = { fg = "grey_5" },
+		markup_headings = { bold = true },
+		markup_raw = { fg = "blue" },
+		markup_links = { underline = true },
+		xml_attributes = {},
+		xml_tags = { fg = "blue" },
+		xml_delimiters = { fg = "grey_5" },
+
+		-- User interface
+		invisible = { fg = "bg" },
+		non_text = { fg = "grey_4" },
+		bad = { fg = "red", bold = true },
+		warning = { fg = "orange", bold = true },
+		ok = { fg = "green", bold = true },
+		other = { fg = "cyan", bold = true },
+		message = {},
+		diff_add = { bg = "light_green" },
+		diff_change = { bg = "light_cyan" },
+		diff_remove = { bg = "light_red" },
+		folds = { fg = "grey_5", bg = "grey_1" },
+		visual_mode = { bg = "light_blue" },
+		search_results = { bg = "light_yellow" },
+		search_current = { bg = "yellow" },
+		alt_bg = { bg = "grey_1" },
+		line_nr = { fg = "grey_4", bg = "grey_1" },
+		cursor_line_nr = { fg = "grey_5", bg = "grey_2" },
+		active = { reverse = true },
+		inactive = { fg = "grey_6", bg = "grey_2" },
+		p_menu = { fg = "grey_4", bg = "grey_6" },
+		p_menu_sel = { fg = "bg", bg = "grey_5" },
+	}
 }
 
--- keeping it under 80 columns ^.^
-local function set_hl(group, options)
-  vim.api.nvim_set_hl(0, group, options)
+-- Map the custom colors to the custom groups
+for group, property in pairs(config.highlight) do
+	local hl = {}
+	for key, value in pairs(property) do
+		hl[key] = config[value] or value
+	end
+	vim.api.nvim_set_hl(0, group, hl)
 end
 
--- PROGRAMMING
+-- Mappings to real groups
+local mappings = {
+	text = { "Normal", "@property", "@string.regexp", "@string.escape", "@string.special", "@string.special.symbol", "@string.special.path", "@string.special.url", "NormalNC", "NormalFloat", "FloatBorder", "Special", "SpecialChar", "FloatTitle", "FloatFooter" },
+	invisible = { "Conceal", "Ignore", "TabLineFill" },
+	-- Syntax
+	keywords = { "Statement", "Conditional", "Repeat", "Label", "Keyword", "Exception", "PreProc", "Include", "Define", "Macro", "PreCondit", "@keyword", "@keyword.coroutine", "@keyword.function", "@keyword.operator", "@keyword.import", "@keyword.type", "@keyword.modifier", "@keyword.repeat", "@keyword.return", "@keyword.debug", "@keyword.exception", "@keyword.conditional", "@keyword.conditional.ternary", "@keyword.directive", "@keyword.directive.define" },
+	types = { "Type", "StorageClass", "Structure", "Typedef", "@type", "@type.builtin", "@type.definition", "@module", "@module.builtin" },
+	constants = { "Constant", "@constant", "@constant.macro" },
+	values = { "Number", "Float", "Boolean", "Character", "@constant.builtin", "@boolean", "@number", "@number.float", "@character" },
+	strings = { "String", "@string", "@string.documentation" },
+	variables = { "Identifier", "@variable", "@variable.parameter", "@variable.parameter.builtin", "@variable.member" },
+	functions = { "Function", "@function", "@function.builtin", "@function.call", "@function.macro", "@function.method", "@function.method.call", "@constructor" },
+	operators = { "Operator", "@operator" },
+	punctuation = { "Delimiter", "@punctuation", "@punctuation.delimiter", "@punctuation.bracket", "@punctuation.special" },
+	comments = { "Comment", "SpecialComment", "@comment", "@comment.documentation", "DiagnosticUnnecessary" },
+	annotations = { "@attribute", "@attribute.builtin", "@label" },
+	markup_bold = { "@markup.strong" },
+	markup_italic = { "@markup.italic" },
+	markup_strikethrough = { "@markup.strikethrough" },
+	markup_underline = { "Underlined", "DiffText", "@markup.underline" },
+	markup_list = { "@markup.list", "@markup.list.checked", "@markup.list.unchecked" },
+	markup_headings = { "@markup.heading", "@markup.heading.1", "@markup.heading.2", "@markup.heading.3", "@markup.heading.4", "@markup.heading.5", "@markup.heading.6", },
+	markup_raw = { "@markup.quote", "@markup.math", "@markup.raw", "@markup.raw.block" },
+	markup_links = { "@markup.link", "@markup.link.label", "@markup.link.url" },
+	xml_attributes = { "@tag.attribute" },
+	xml_tags = { "@tag", "@tag.builtin" },
+	xml_delimiters = { "@tag.delimiter", "@tag.delimiter.html" },
 
--- keywords
-set_hl('Statement',                    { fg = hl.blue })
-set_hl('Conditional',                  { fg = hl.blue })
-set_hl('Repeat',                       { fg = hl.blue })
-set_hl('Label',                        { fg = hl.blue })
-set_hl('Keyword',                      { fg = hl.blue })
-set_hl('Exception',                    { fg = hl.blue })
-set_hl('PreProc',                      { fg = hl.blue })
-set_hl('Include',                      { fg = hl.blue })
-set_hl('Define',                       { fg = hl.blue })
-set_hl('Macro',                        { fg = hl.blue })
-set_hl('PreCondit',                    { fg = hl.blue })
-set_hl('@keyword',                     { fg = hl.blue })
-set_hl('@keyword.coroutine',           { fg = hl.blue })
-set_hl('@keyword.function',            { fg = hl.blue })
-set_hl('@keyword.operator',            { fg = hl.blue })
-set_hl('@keyword.import',              { fg = hl.blue })
-set_hl('@keyword.type',                { fg = hl.blue })
-set_hl('@keyword.modifier',            { fg = hl.blue })
-set_hl('@keyword.repeat',              { fg = hl.blue })
-set_hl('@keyword.return',              { fg = hl.blue })
-set_hl('@keyword.debug',               { fg = hl.blue })
-set_hl('@keyword.exception',           { fg = hl.blue })
-set_hl('@keyword.conditional',         { fg = hl.blue })
-set_hl('@keyword.conditional.ternary', { fg = hl.blue })
-set_hl('@keyword.directive',           { fg = hl.blue })
-set_hl('@keyword.directive.define',    { fg = hl.blue })
+	-- User interface
+	non_text = { "NonText", "SpecialKey", "Whitespace", "FoldColumn", "SignColumn", "CursorLineFold", "CursorLineSign", "EndOfBuffer" },
+	bad = { "Error", "DiagnosticError", "DiagnosticVirtualTextError", "DiagnosticFloatingError", "DiagnosticSignError", "ErrorMsg", "@comment.error", "@comment.warning" },
+	warning = { "DiagnosticWarn", "DiagnosticVirtualTextWarn", "DiagnosticFloatingWarn", "DiagnosticSignWarn", "WarningMsg" },
+	ok = { "DiagnosticOk", "DiagnosticVirtualTextOk", "DiagnosticFloatingOk", "DiagnosticSignOk" },
+	other = { "Debug", "Todo", "Directory", "Tag", "@comment.todo", "@comment.note", "DiagnosticInfo", "DiagnosticHint" },
+	message = { "ModeMsg", "MsgArea", "MoreMsg", "Question" },
+	diff_add = { "DiffAdd", "Added" },
+	diff_change = { "DiffChange", "Changed" },
+	diff_remove = { "DiffDelete", "Removed" },
+	folds = { "Folded" },
+	visual_mode = { "Visual", "VisualNOS" },
+	search_results = { "Search", "Substitute" },
+	search_current = { "CurSearch", "IncSearch", "MatchParen", "QuickFixLine", "SnippetTabstop" },
+	alt_bg = { "CursorLine", "CursorColumn", "ColorColumn" },
+	line_nr = { "LineNr", "LineNrAbove", "LineNrBelow" },
+	cursor_line_nr = { "CursorLineNr" },
+	active = { "StatusLine", "TabLineSel", "WinBar"},
+	inactive = { "StatusLineNC", "TabLine", "WinBarNC" },
+	p_menu = { "Pmenu", "PmenuKind", "PmenuExtra", "WildMenu" },
+	p_menu_sel = { "PmenuSel", "PmenuKindSel", "PmenuExtraSel", "PmenuThumb" },
+}
 
--- modules and types
-set_hl('@module',                { fg = hl.magenta })
-set_hl('@module.builtin',        { fg = hl.magenta })
-set_hl('Type',                   { fg = hl.magenta })
-set_hl('Typedef',                { fg = hl.magenta })
-set_hl('StorageClass',           { fg = hl.magenta })
-set_hl('Structure',              { fg = hl.magenta })
-set_hl('@type',                  { fg = hl.magenta })
-set_hl('@type.builtin',          { fg = hl.magenta })
-set_hl('@type.definition',       { fg = hl.magenta })
-
--- known values
-set_hl('Number',                 { fg = hl.orange })
-set_hl('@number',                { fg = hl.orange })
-set_hl('@number.float',          { fg = hl.orange })
-set_hl('Boolean',                { fg = hl.orange })
-set_hl('@boolean',               { fg = hl.orange })
-set_hl('Character',              { fg = hl.orange })
-set_hl('@character',             { fg = hl.orange })
-set_hl('Constant',               { fg = hl.brown })
-set_hl('@constant',              { fg = hl.brown })
-set_hl('@constant.macro',        { fg = hl.brown })
-set_hl('@constant.builtin',      { fg = hl.orange })
-
--- strings
-set_hl('String',                 { fg = hl.green })
-set_hl('@string',                { fg = hl.green })
-set_hl('@string.documentation',  { fg = hl.green })
-set_hl('@string.regexp',         { fg = hl.fg })
-set_hl('@string.escape',         { fg = hl.fg })
-set_hl('@string.special',        { fg = hl.fg })
-set_hl('@string.special.symbol', { fg = hl.fg })
-set_hl('@string.special.path',   { fg = hl.fg })
-set_hl('@string.special.url',    { fg = hl.fg })
-
--- variables and functions
-set_hl('Identifier',                   { fg = hl.fg })
-set_hl('@variable',                    { fg = hl.fg })
-set_hl('@variable.builtin',            { fg = hl.fg })
-set_hl('@variable.parameter',          { fg = hl.fg })
-set_hl('@variable.parameter.builtin',  { fg = hl.fg })
-set_hl('@variable.member',             { fg = hl.fg })
-set_hl('Function',                     { fg = hl.fg })
-set_hl('@function',                    { fg = hl.fg })
-set_hl('@function.builtin',            { fg = hl.fg })
-set_hl('@function.call',               { fg = hl.fg })
-set_hl('@function.macro',              { fg = hl.fg })
-set_hl('@function.method',             { fg = hl.fg })
-set_hl('@function.method.call',        { fg = hl.fg })
-set_hl('@constructor',                 { fg = hl.fg })
-
--- symbols
-set_hl('Operator',               { fg = hl.fg })
-set_hl('@operator',              { fg = hl.fg })
-set_hl('Delimiter',              { fg = hl.fg })
-set_hl('@punctuation.delimiter', { fg = hl.fg })
-set_hl('@punctuation.bracket',   { fg = hl.fg })
-set_hl('@punctuation.special',   { fg = hl.fg })
-set_hl('Special',                { fg = hl.fg })
-set_hl('SpecialChar',            { fg = hl.fg })
-set_hl('@character.special',     { fg = hl.fg })
-
--- comments
-set_hl('Comment',                { fg = hl.grey_2 })
-set_hl('SpecialComment',         { fg = hl.grey_2 })
-set_hl('@comment',               { fg = hl.grey_2 })
-set_hl('@comment.documentation', { fg = hl.grey_2 })
-set_hl('Error',                  { fg = hl.bg, bg = hl.red,  bold = true })
-set_hl('@comment.error',         { fg = hl.bg, bg = hl.red,  bold = true })
-set_hl('@comment.warning',       { fg = hl.bg, bg = hl.red,  bold = true })
-set_hl('Todo',                   { fg = hl.bg, bg = hl.teal, bold = true })
-set_hl('@comment.todo',          { fg = hl.bg, bg = hl.teal, bold = true })
-set_hl('@comment.note',          { fg = hl.bg, bg = hl.teal, bold = true })
-set_hl('Debug',                  { fg = hl.teal, bold = true })
-
--- labels
-set_hl('@attribute',             { italic = true })
-set_hl('@attribute.builtin',     { italic = true })
-set_hl('@label',                 { italic = true })
-
--- MARKUP
-
--- font styles
-set_hl('@markup.strong',         { bold = true })
-set_hl('@markup.italic',         { italic = true })
-set_hl('@markup.strikethrough',  { strikethrough = true })
-set_hl('@markup.underline',      { underline = true })
-set_hl('@markup.heading',        { bold = true })
-set_hl('@markup.heading.1',      { bold = true })
-set_hl('@markup.heading.2',      { bold = true })
-set_hl('@markup.heading.3',      { bold = true })
-set_hl('@markup.heading.4',      { bold = true })
-set_hl('@markup.heading.5',      { bold = true })
-set_hl('@markup.heading.6',      { bold = true })
-set_hl('@markup.link',           { fg = blue, underline = true })
-set_hl('@markup.link.label',     { fg = blue, underline = true })
-set_hl('@markup.link.url',       { fg = blue, underline = true })
-set_hl('@markup.raw',            { fg = hl.black })
-set_hl('@markup.raw.block',      { fg = hl.black })
-set_hl('@markup.quote',          { fg = hl.black })
-set_hl('@markup.math',           { fg = hl.black })
-set_hl('@markup.list',           { fg = hl.grey_1 })
-set_hl('@markup.list.checked',   { fg = hl.grey_3 })
-set_hl('@markup.list.unchecked', { fg = hl.grey_1 })
-
--- properties
-set_hl('@property',              { fg = hl.fg })
-set_hl('@property.css',          { fg = hl.blue })
-set_hl('@property.yaml',         { fg = hl.blue })
-set_hl('@property.toml',         { fg = hl.blue })
-set_hl('@property.json',         { fg = hl.blue })
--- XML-style tags
-set_hl('@tag',                   { fg = hl.blue })
-set_hl('@tag.builtin',           { fg = hl.blue })
-set_hl('@tag.attribute',         { fg = hl.fg })
-set_hl('@tag.delimiter',         { fg = hl.grey_2 })
-set_hl('@tag.delimiter.html',    { fg = hl.grey_2 })
-
--- USER INTERFACE
-
-set_hl('Normal',         { fg = hl.fg, bg = hl.bg })
-set_hl('Ignore',         { fg = hl.fg, bg = hl.bg })
-set_hl('Visual',         { bg = hl.l_blue })
-set_hl('VisualNOS',      { bg = hl.l_blue })
-set_hl('Conceal',        { fg = hl.bg, bg = hl.bg })
-set_hl('Whitespace',     { fg = hl.grey_4 })
-set_hl('Search',         { bg = hl.l_yellow })
-set_hl('CurSearch',      { bg = hl.yellow })
-set_hl('Substitute',     { bg = hl.l_yellow })
-set_hl('IncSearch',      { bg = hl.yellow })
-set_hl('MatchParen',     { bg = hl.yellow })
-set_hl('CursorLine',     { bg = hl.d_white })
-set_hl('CursorColumn',   { bg = hl.d_white })
-set_hl('ColorColumn',    { bg = hl.d_white })
-set_hl('Directory',      { fg = hl.blue, bold = true }) -- matches dircolors
-set_hl('Folded',         { fg = hl.grey_2, bg = hl.d_white })
-set_hl('LineNr',         { fg = hl.grey_3, bg = hl.d_white })
-set_hl('LineNrAbove',    { fg = hl.grey_3, bg = hl.d_white })
-set_hl('LineNrBelow',    { fg = hl.grey_3, bg = hl.d_white })
-set_hl('CursorLineNr',   { fg = hl.grey_2, bg = hl.grey_5 })
-set_hl('MoreMsg',        { fg = hl.fg })
-set_hl('ModeMsg',        { fg = hl.fg })
-set_hl('Question',       { fg = hl.fg })
-set_hl('ErrorMsg',       { fg = hl.red,    bold = true })
-set_hl('WarningMsg',     { fg = hl.orange, bold = true })
-set_hl('FloatTitle',     { bold = true })
-set_hl('FloatFooter',    { bold = true })
-set_hl('Title',          { bold = true })
-
--- UI widgets
-set_hl('TabLine',        { fg = hl.grey_1, bg = hl.grey_5 })
-set_hl('TabLineFill',    { bg = hl.bg })
-set_hl('TabLineSel',     { fg = hl.bg,     bg = hl.fg })
-set_hl('StatusLine',     { fg = hl.bg,     bg = hl.fg })
-set_hl('StatusLineNC',   { fg = hl.grey_1, bg = hl.grey_5 })
-set_hl('Pmenu',          { fg = hl.grey_3, bg = hl.grey_1 })
-set_hl('PmenuSel',       { fg = hl.bg,     bg = hl.grey_2 })
-set_hl('PmenuKind',      { fg = hl.grey_3, bg = hl.grey_1, italic = true })
-set_hl('PmenuKindSel',   { fg = hl.bg,     bg = hl.grey_2, italic = true })
-set_hl('PmenuExtra',     { fg = hl.grey_3, bg = hl.grey_1 })
-set_hl('PmenuExtraSel',  { fg = hl.bg,     bg = hl.grey_2 })
-set_hl('PmenuSbar',      { fg = hl.grey_3, bg = hl.grey_1 })
-set_hl('PmenuThumb',     { fg = hl.grey_3, bg = hl.grey_2 })
-set_hl('WildMenu',       { fg = hl.bg,     bg = hl.grey_2 })
-set_hl('WinBar',         { fg = hl.bg,     bg = hl.fg })
-set_hl('WinBarNC',       { fg = hl.grey_1, bg = hl.grey_5 })
-
--- diff view
-set_hl('DiffAdd',        { bg = hl.l_green })
-set_hl('DiffDelete',     { bg = hl.l_red })
-set_hl('DiffChange',     { bg = hl.cyan })
-set_hl('Added',          { bg = hl.l_green })
-set_hl('Removed',        { bg = hl.l_red })
-set_hl('Changed',        { bg = hl.cyan })
-set_hl('DiffText',       { underline = true })
-set_hl('@diff.plus',     { bg = hl.l_green })
-set_hl('@diff.minus',    { bg = hl.l_red })
-set_hl('@diff.delta',    { bg = hl.cyan })
-
--- misc
-set_hl('QuickFixLine',   { bg = hl.cyan })
-set_hl('SnippetTabstop', { bg = hl.cyan })
-set_hl('SpecialKey',     { fg = hl.grey_2 })
-set_hl('SpellBad',       { fg = hl.red,     undercurl = true })
-set_hl('SpellCap',       { fg = hl.magenta, undercurl = true })
-set_hl('SpellLocal',     { fg = hl.green,   undercurl = true })
-set_hl('SpellRare',      { fg = hl.magenta, undercurl = true })
+-- Finally, apply the mappings
+for custom_group, target_group in pairs(mappings) do
+	for _, target_group in ipairs(target_group) do
+		vim.api.nvim_set_hl(0, target_group, { link = custom_group })
+	end
+end
