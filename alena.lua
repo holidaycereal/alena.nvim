@@ -37,6 +37,7 @@ local config = {
 	
 	highlight = {
 		text = {},
+		invisible = { fg = "bg" },
 		-- Syntax
 		keywords = { fg = "blue" },
 		types = { fg = "magenta" },
@@ -61,7 +62,6 @@ local config = {
 		xml_delimiters = { fg = "grey_5" },
 
 		-- User interface
-		invisible = { fg = "bg" },
 		non_text = { fg = "grey_4" },
 		bad = { fg = "red", bold = true },
 		warning = { fg = "orange", bold = true },
