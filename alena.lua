@@ -37,7 +37,7 @@ local config = {
 	
 	highlight = {
 		text = {},
-		invisible = { fg = "bg" },
+		non_text = { fg = "grey_3" },
 
 		-- Syntax
 		keywords = { fg = "blue" },
@@ -54,16 +54,15 @@ local config = {
 		markup_bold = { bold = true },
 		markup_italic = { italic = true },
 		markup_underline = { underline = true },
-		markup_list = { fg = "grey_5" },
-		markup_headings = { bold = true },
-		markup_raw = { fg = "blue" },
-		markup_links = { underline = true },
+		markup_list = { fg = "red" },
+		markup_headings = { fg = "red", bold = true },
+		markup_raw = { fg = "green" },
+		markup_links = { fg = "green", underline = true },
 		xml_attributes = {},
 		xml_tags = { fg = "blue" },
 		xml_delimiters = { fg = "grey_5" },
 
 		-- User interface
-		non_text = { fg = "grey_4" },
 		bad = { fg = "red", bold = true },
 		warning = { fg = "orange", bold = true },
 		ok = { fg = "green", bold = true },
@@ -73,7 +72,7 @@ local config = {
 		diff_change = { bg = "light_cyan" },
 		diff_remove = { bg = "light_red" },
 		folds = { fg = "grey_5", bg = "grey_1" },
-		visual_mode = { bg = "light_blue" },
+		visual_mode = { bg = "grey_1" },
 		search_results = { bg = "light_yellow" },
 		search_current = { bg = "yellow" },
 		alt_bg = { bg = "grey_1" },
@@ -101,7 +100,7 @@ vim.api.nvim_set_hl(0, "Normal", { fg = config.fg, bg = config.bg })
 -- Mappings to real groups
 local mappings = {
 	text = { "@property", "@string.regexp", "@string.escape", "@string.special", "@string.special.symbol", "@string.special.path", "@string.special.url", "NormalNC", "NormalFloat", "FloatBorder", "Special", "SpecialChar", "FloatTitle", "FloatFooter" },
-	invisible = { "Conceal", "Ignore", "TabLineFill" },
+	non_text = { "@conceal", "Conceal", "Ignore", "TabLineFill",  "NonText", "SpecialKey", "Whitespace", "FoldColumn", "SignColumn", "CursorLineFold", "CursorLineSign", "EndOfBuffer" },
 
 	-- Syntax
 	keywords = { "Statement", "Conditional", "Repeat", "Label", "Keyword", "Exception", "PreProc", "Include", "Define", "Macro", "PreCondit", "@keyword", "@keyword.coroutine", "@keyword.function", "@keyword.operator", "@keyword.import", "@keyword.type", "@keyword.modifier", "@keyword.repeat", "@keyword.return", "@keyword.debug", "@keyword.exception", "@keyword.conditional", "@keyword.conditional.ternary", "@keyword.directive", "@keyword.directive.define", "@function.builtin" },
@@ -128,7 +127,6 @@ local mappings = {
 	xml_delimiters = { "@tag.delimiter", "@tag.delimiter.html" },
 
 	-- User interface
-	non_text = { "NonText", "SpecialKey", "Whitespace", "FoldColumn", "SignColumn", "CursorLineFold", "CursorLineSign", "EndOfBuffer" },
 	bad = { "Error", "DiagnosticError", "DiagnosticVirtualTextError", "DiagnosticFloatingError", "DiagnosticSignError", "ErrorMsg", "@comment.error", "@comment.warning" },
 	warning = { "DiagnosticWarn", "DiagnosticVirtualTextWarn", "DiagnosticFloatingWarn", "DiagnosticSignWarn", "WarningMsg" },
 	ok = { "DiagnosticOk", "DiagnosticVirtualTextOk", "DiagnosticFloatingOk", "DiagnosticSignOk" },
