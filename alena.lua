@@ -72,7 +72,7 @@ local config = {
 		diff_change = { bg = "light_cyan" },
 		diff_remove = { bg = "light_red" },
 		folds = { fg = "grey_5", bg = "grey_1" },
-		visual_mode = { bg = "grey_1" },
+		visual_mode = { bg = "light_blue" },
 		search_results = { bg = "light_yellow" },
 		search_current = { bg = "yellow" },
 		alt_bg = { bg = "grey_1" },
