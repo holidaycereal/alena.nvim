@@ -33,7 +33,7 @@ local config = {
 	blue = "#0d47a1",
 	magenta = "#8b008b",
 	orange = "#cc5400",
-	
+
 	highlight = {
 		text = { fg = "fg" },
 		non_text = { fg = "grey_3" },
@@ -41,14 +41,16 @@ local config = {
 		-- Syntax
 		keywords = { fg = "blue" },
 		types = { fg = "magenta" },
+		constants = { fg = "magenta" },
 		values = { fg = "orange" },
 		strings = { fg = "green" },
-		variables = {},
-		functions = {},
-		operators = {},
-		punctuation = {},
+		variables = { fg = "fg" },
+		functions = { fg = "fg" },
+		operators = { fg = "fg" },
+		punctuation = { fg = "fg" },
 		comments = { fg = "grey_5" },
 		annotations = { underline = true },
+
 		markup_bold = { bold = true },
 		markup_italic = { italic = true },
 		markup_underline = { underline = true },
@@ -103,7 +105,8 @@ local mappings = {
 	-- Syntax
 	keywords = { "Statement", "Conditional", "Repeat", "Label", "Keyword", "Exception", "PreProc", "Include", "Define", "Macro", "PreCondit", "@keyword", "@keyword.coroutine", "@keyword.function", "@keyword.operator", "@keyword.import", "@keyword.type", "@keyword.modifier", "@keyword.repeat", "@keyword.return", "@keyword.debug", "@keyword.exception", "@keyword.conditional", "@keyword.conditional.ternary", "@keyword.directive", "@keyword.directive.define", "@function.builtin" },
 	types = { "Type", "StorageClass", "Structure", "Typedef", "@type", "@type.builtin", "@type.definition", "@module", "@module.builtin" },
-	values = { "Number", "Float", "Boolean", "Character", "Constant", "@constant", "@constant.macro", "@constant.builtin", "@boolean", "@number", "@number.float", "@character" },
+	values = { "Number", "Float", "Boolean", "Character", "@constant.builtin", "@boolean", "@number", "@number.float", "@character" },
+	constants = { "Constant", "@constant", "@constant.macro" },
 	strings = { "String", "@string", "@string.documentation" },
 	variables = { "Identifier", "@variable", "@variable.parameter", "@variable.member", "@variable.builtin", "@variable.parameter.builtin" },
 	functions = { "Function", "@function", "@function.call", "@function.macro", "@function.method", "@function.method.call", "@constructor" },
@@ -111,6 +114,7 @@ local mappings = {
 	punctuation = { "Delimiter", "@punctuation", "@punctuation.delimiter", "@punctuation.bracket", "@punctuation.special" },
 	comments = { "Comment", "SpecialComment", "@comment", "@comment.documentation", "DiagnosticUnnecessary" },
 	annotations = { "@attribute", "@attribute.builtin", "@label" },
+
 	markup_bold = { "@markup.strong" },
 	markup_italic = { "@markup.italic" },
 	markup_strikethrough = { "@markup.strikethrough" },
