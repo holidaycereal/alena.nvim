@@ -7,6 +7,7 @@ designed to work best with `termguicolors` & `tree-sitter`.
 
 ## features
 - thoughtful, sensible color choices
+- very easy to configure
 - the only good light colorscheme ever made
 - ALMOST white background
 - feels like looking at a real paper document!
