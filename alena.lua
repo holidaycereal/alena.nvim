@@ -33,16 +33,14 @@ local config = {
 	blue = "#0d47a1",
 	magenta = "#8b008b",
 	orange = "#cc5400",
-	brown = "#80442b",
 	
 	highlight = {
-		text = {},
+		text = { fg = "fg" },
 		non_text = { fg = "grey_3" },
 
 		-- Syntax
 		keywords = { fg = "blue" },
 		types = { fg = "magenta" },
-		constants = { fg = "brown" },
 		values = { fg = "orange" },
 		strings = { fg = "green" },
 		variables = {},
@@ -105,10 +103,9 @@ local mappings = {
 	-- Syntax
 	keywords = { "Statement", "Conditional", "Repeat", "Label", "Keyword", "Exception", "PreProc", "Include", "Define", "Macro", "PreCondit", "@keyword", "@keyword.coroutine", "@keyword.function", "@keyword.operator", "@keyword.import", "@keyword.type", "@keyword.modifier", "@keyword.repeat", "@keyword.return", "@keyword.debug", "@keyword.exception", "@keyword.conditional", "@keyword.conditional.ternary", "@keyword.directive", "@keyword.directive.define", "@function.builtin" },
 	types = { "Type", "StorageClass", "Structure", "Typedef", "@type", "@type.builtin", "@type.definition", "@module", "@module.builtin" },
-	constants = { "Constant", "@constant", "@constant.macro" },
-	values = { "Number", "Float", "Boolean", "Character", "@constant.builtin", "@boolean", "@number", "@number.float", "@character" },
+	values = { "Number", "Float", "Boolean", "Character", "Constant", "@constant", "@constant.macro", "@constant.builtin", "@boolean", "@number", "@number.float", "@character" },
 	strings = { "String", "@string", "@string.documentation" },
-	variables = { "Identifier", "@variable", "@variable.parameter", "@variable.parameter.builtin", "@variable.member" },
+	variables = { "Identifier", "@variable", "@variable.parameter", "@variable.member", "@variable.builtin", "@variable.parameter.builtin" },
 	functions = { "Function", "@function", "@function.call", "@function.macro", "@function.method", "@function.method.call", "@constructor" },
 	operators = { "Operator", "@operator" },
 	punctuation = { "Delimiter", "@punctuation", "@punctuation.delimiter", "@punctuation.bracket", "@punctuation.special" },
