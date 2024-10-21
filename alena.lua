@@ -45,7 +45,7 @@ local config = {
 		values = { fg = "orange" },
 		strings = { fg = "green" },
 		variables = { fg = "fg" },
-		variables_builtin = { fg = "fg", italic = true },
+		variables_builtin = { fg = "magenta" },
 		functions = { fg = "fg" },
 		operators = { fg = "fg" },
 		punctuation = { fg = "fg" },
