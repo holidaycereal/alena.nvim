@@ -26,7 +26,7 @@ local config = {
 	light_cyan = "#a2efef",
 	light_blue = "#d8e8fc",
 
-	red = "#ac0010",
+	red = "#9c0000",
 	yellow = "#f5c71a",
 	green = "#2e742a",
 	cyan = "#007474",
@@ -36,16 +36,16 @@ local config = {
 
 	highlight = {
 		text = { fg = "fg" },
-		non_text = { fg = "grey_3" },
+		non_text = { fg = "grey_4" },
 
 		-- Syntax
 		keywords = { fg = "blue" },
 		types = { fg = "magenta" },
-		constants = { fg = "magenta" },
+		constants = { fg = "red" },
 		values = { fg = "orange" },
 		strings = { fg = "green" },
 		variables = { fg = "fg" },
-		variables_builtin = { fg = "magenta" },
+		variables_builtin = { fg = "fg", italic = true },
 		functions = { fg = "fg" },
 		operators = { fg = "fg" },
 		punctuation = { fg = "fg" },
@@ -58,8 +58,8 @@ local config = {
 		markup_list = { fg = "blue" },
 		markup_headings = { fg = "blue", bold = true },
 		markup_raw = { fg = "green" },
-		markup_links = { fg = "blue", underline = true },
-		xml_attributes = {},
+		markup_links = { underline = true },
+		xml_attributes = { fg = "fg" },
 		xml_tags = { fg = "blue" },
 		xml_delimiters = { fg = "grey_5" },
 
@@ -104,8 +104,8 @@ local mappings = {
 	non_text = { "@conceal", "Conceal", "Ignore", "TabLineFill",  "NonText", "SpecialKey", "Whitespace", "FoldColumn", "SignColumn", "CursorLineFold", "CursorLineSign", "EndOfBuffer" },
 
 	-- Syntax
-	keywords = { "Statement", "Conditional", "Repeat", "Label", "Keyword", "Exception", "PreProc", "Include", "Define", "Macro", "PreCondit", "@keyword", "@keyword.coroutine", "@keyword.function", "@keyword.operator", "@keyword.import", "@keyword.type", "@keyword.modifier", "@keyword.repeat", "@keyword.return", "@keyword.debug", "@keyword.exception", "@keyword.conditional", "@keyword.conditional.ternary", "@keyword.directive", "@keyword.directive.define", "@function.builtin", "@property.css" },
-	types = { "Type", "StorageClass", "Structure", "Typedef", "@type", "@type.builtin", "@type.definition", "@module", "@module.builtin" },
+	keywords = { "Statement", "Conditional", "Repeat", "Label", "Keyword", "Exception", "PreProc", "Include", "Define", "Macro", "PreCondit", "@keyword", "@keyword.coroutine", "@keyword.function", "@keyword.operator", "@keyword.import", "@keyword.type", "@keyword.modifier", "@keyword.repeat", "@keyword.return", "@keyword.debug", "@keyword.exception", "@keyword.conditional", "@keyword.conditional.ternary", "@keyword.directive", "@keyword.directive.define", "@function.builtin", "@property.css", "@function.macro.commonlisp" },
+	types = { "Type", "StorageClass", "Structure", "Typedef", "@type", "@type.builtin", "@type.definition", "@module", "@module.builtin", "@tag.css" },
 	values = { "Number", "Float", "Boolean", "Character", "@constant.builtin", "@boolean", "@number", "@number.float", "@character" },
 	constants = { "Constant", "@constant", "@constant.macro" },
 	strings = { "String", "@string", "@string.documentation" },
