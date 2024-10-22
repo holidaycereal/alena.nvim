@@ -41,7 +41,7 @@ local config = {
 		-- Syntax
 		keywords = { fg = "blue" },
 		types = { fg = "magenta" },
-		constants = { fg = "red" },
+		constants = { fg = "magenta" },
 		values = { fg = "orange" },
 		strings = { fg = "green" },
 		variables = { fg = "fg" },
