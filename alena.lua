@@ -157,3 +157,5 @@ for custom_group, target_group in pairs(mappings) do
 		vim.api.nvim_set_hl(0, target_group, { link = custom_group })
 	end
 end
+
+vim.g.colors_name = "alena"
