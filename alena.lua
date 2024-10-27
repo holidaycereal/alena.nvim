@@ -100,7 +100,7 @@ vim.api.nvim_set_hl(0, "Normal", { fg = config.fg, bg = config.bg })
 
 -- Mappings to real groups
 local mappings = {
-	text = { "@property", "@string.regexp", "@string.escape", "@string.special", "@string.special.symbol", "@string.special.path", "@string.special.url", "NormalNC", "NormalFloat", "FloatBorder", "Special", "SpecialChar", "FloatTitle", "FloatFooter", "@string.css", "@number.css" },
+	text = { "@property", "NormalNC", "NormalFloat", "FloatBorder", "Special", "SpecialChar", "FloatTitle", "FloatFooter", "@string.css", "@number.css" },
 	non_text = { "@conceal", "Conceal", "Ignore", "TabLineFill",  "NonText", "SpecialKey", "Whitespace", "FoldColumn", "SignColumn", "CursorLineFold", "CursorLineSign", "EndOfBuffer" },
 
 	-- Syntax
@@ -108,7 +108,7 @@ local mappings = {
 	types = { "Type", "StorageClass", "Structure", "Typedef", "@type", "@type.builtin", "@type.definition", "@module", "@module.builtin", "@tag.css" },
 	values = { "Number", "Float", "Boolean", "Character", "@constant.builtin", "@boolean", "@number", "@number.float", "@character" },
 	constants = { "Constant", "@constant", "@constant.macro" },
-	strings = { "String", "@string", "@string.documentation" },
+	strings = { "String", "@string", "@string.documentation", "@string.regexp", "@string.escape", "@string.special", "@string.special.symbol", "@string.special.path", "@string.special.url" },
 	variables = { "Identifier", "@variable", "@variable.parameter", "@variable.member" },
 	variables_builtin = { "@variable.builtin", "@variable.parameter.builtin" },
 	functions = { "Function", "@function", "@function.call", "@function.macro", "@function.method", "@function.method.call", "@constructor" },
