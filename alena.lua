@@ -11,14 +11,14 @@ end
 -- Config tables
 local config = {
 	bg = "#f6f6f6",
-	fg = "#000000",
+	fg = "#323438",
 
-	grey_1 = "#eaeaea",
-	grey_2 = "#d5d5d5",
-	grey_3 = "#bcbcbc",
-	grey_4 = "#a9a9a9",
-	grey_5 = "#808080",
-	grey_6 = "#545454",
+	grey_1 = "#eeeeee",
+	grey_2 = "#dddddd",
+	grey_3 = "#bcbfc1",
+	grey_4 = "#a9abad",
+	grey_5 = "#888a8c",
+	grey_6 = "#54585c",
 
 	light_red = "#ffc0b9",
 	light_yellow = "#ffeca4",
@@ -28,11 +28,11 @@ local config = {
 
 	red = "#9c0000",
 	yellow = "#f5c71a",
-	green = "#2e742a",
+	green = "#4f790d",
 	cyan = "#007474",
-	blue = "#0d47a1",
-	magenta = "#8b008b",
-	orange = "#cc5400",
+	blue = "#005490",
+	magenta = "#a626a4",
+	orange = "#b75501",
 
 	highlight = {
 		text = { fg = "fg" },
