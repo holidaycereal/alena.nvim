@@ -13,8 +13,8 @@ local config = {
 	bg = "#f6f6f6",
 	fg = "#323438",
 
-	grey_1 = "#eeeeee",
-	grey_2 = "#dddddd",
+	grey_1 = "#ececec",
+	grey_2 = "#e1e1e1",
 	grey_3 = "#bcbfc1",
 	grey_4 = "#a9abad",
 	grey_5 = "#888a8c",
