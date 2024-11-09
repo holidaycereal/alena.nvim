@@ -106,9 +106,9 @@ local mappings = {
 	-- Syntax
 	keywords = { "Statement", "Conditional", "Repeat", "Label", "Keyword", "Exception", "PreProc", "Include", "Define", "Macro", "PreCondit", "@keyword", "@keyword.coroutine", "@keyword.function", "@keyword.operator", "@keyword.import", "@keyword.type", "@keyword.modifier", "@keyword.repeat", "@keyword.return", "@keyword.debug", "@keyword.exception", "@keyword.conditional", "@keyword.conditional.ternary", "@keyword.directive", "@keyword.directive.define", "@property.css", "@function.macro.commonlisp", "@operator.haskell" },
 	types = { "Type", "StorageClass", "Structure", "Typedef", "@type", "@type.builtin", "@type.definition", "@module", "@module.builtin", "@tag.css" },
-	values = { "Number", "Float", "Boolean", "Character", "@constant.builtin", "@boolean", "@number", "@number.float", "@string.escape", "@character" },
+	values = { "Number", "Float", "Boolean", "@constant.builtin", "@boolean", "@number", "@number.float" },
 	constants = { "Constant", "@constant", "@constant.macro" },
-	strings = { "String", "@string", "@string.documentation", "@string.regexp", "@string.special", "@string.special.symbol", "@string.special.path", "@string.special.url" },
+	strings = { "String", "Character", "@string", "@character", "@string.documentation", "@string.regexp", "@string.escape", "@string.special", "@string.special.symbol", "@string.special.path", "@string.special.url" },
 	variables = { "Identifier", "@variable", "@variable.parameter", "@variable.member" },
 	variables_builtin = { "@variable.builtin", "@variable.parameter.builtin" },
 	functions = { "Function", "@function", "@function.call", "@function.macro", "@function.method", "@function.method.call", "@function.builtin", "@constructor" },
