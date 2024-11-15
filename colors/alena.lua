@@ -26,7 +26,7 @@ local config = {
 	light_cyan = "#a2efef",
 	light_blue = "#d8e8fc",
 
-	red = "#9c0000",
+	red = "#cc0000",
 	yellow = "#f5c71a",
 	green = "#4f790d",
 	cyan = "#007474",
@@ -40,6 +40,7 @@ local config = {
 
 		-- Syntax
 		keywords = { fg = "blue" },
+		directives = { fg = "red" },
 		types = { fg = "magenta" },
 		constants = { fg = "orange" },
 		values = { fg = "orange" },
@@ -50,7 +51,7 @@ local config = {
 		operators = { fg = "fg" },
 		punctuation = { fg = "fg" },
 		comments = { fg = "grey_5" },
-		annotations = { underline = true },
+		annotations = { fg = "red" },
 
 		markup_bold = { bold = true },
 		markup_italic = { italic = true },
@@ -104,7 +105,8 @@ local mappings = {
 	non_text = { "@conceal", "Conceal", "Ignore", "TabLineFill",  "NonText", "SpecialKey", "Whitespace", "FoldColumn", "SignColumn", "CursorLineFold", "CursorLineSign", "EndOfBuffer" },
 
 	-- Syntax
-	keywords = { "Statement", "Conditional", "Repeat", "Label", "Keyword", "Exception", "PreProc", "Include", "Define", "Macro", "PreCondit", "@keyword", "@keyword.coroutine", "@keyword.function", "@keyword.operator", "@keyword.import", "@keyword.type", "@keyword.modifier", "@keyword.repeat", "@keyword.return", "@keyword.debug", "@keyword.exception", "@keyword.conditional", "@keyword.conditional.ternary", "@keyword.directive", "@keyword.directive.define", "@property.css", "@function.macro.commonlisp", "@operator.haskell" },
+	keywords = { "Statement", "Conditional", "Repeat", "Keyword", "Exception", "@keyword", "@keyword.coroutine", "@keyword.function", "@keyword.operator", "@keyword.type", "@keyword.modifier", "@keyword.repeat", "@keyword.return", "@keyword.debug", "@keyword.exception", "@keyword.conditional", "@keyword.conditional.ternary", "@property.css", "@function.macro.commonlisp", "@operator.haskell" },
+	directives = { "PreProc", "Include", "Define", "Macro", "PreCondit", "@keyword.directive", "@keyword.directive.define", "@keyword.import" },
 	types = { "Type", "StorageClass", "Structure", "Typedef", "@type", "@type.builtin", "@type.definition", "@module", "@module.builtin", "@tag.css" },
 	values = { "Number", "Float", "Boolean", "@constant.builtin", "@boolean", "@number", "@number.float" },
 	constants = { "Constant", "@constant", "@constant.macro" },
@@ -115,7 +117,7 @@ local mappings = {
 	operators = { "Operator", "@operator" },
 	punctuation = { "Delimiter", "@punctuation", "@punctuation.delimiter", "@punctuation.bracket", "@punctuation.special" },
 	comments = { "Comment", "SpecialComment", "@comment", "@comment.documentation", "DiagnosticUnnecessary" },
-	annotations = { "@attribute", "@attribute.builtin", "@label" },
+	annotations = { "@attribute", "@attribute.builtin", "Label", "@label" },
 
 	markup_bold = { "@markup.strong" },
 	markup_italic = { "@markup.italic" },
