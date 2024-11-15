@@ -26,7 +26,7 @@ local config = {
 	light_cyan = "#a2efef",
 	light_blue = "#d8e8fc",
 
-	red = "#cc0000",
+	red = "#bc0000",
 	yellow = "#f5c71a",
 	green = "#4f790d",
 	cyan = "#007474",
