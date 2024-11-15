@@ -58,7 +58,7 @@ local config = {
 		markup_underline = { underline = true },
 		markup_list = { fg = "blue" },
 		markup_headings = { fg = "blue", bold = true },
-		markup_raw = { fg = "green" },
+		markup_raw = { fg = "red" },
 		markup_links = { underline = true },
 		xml_attributes = { fg = "fg" },
 		xml_tags = { fg = "blue" },
@@ -105,7 +105,7 @@ local mappings = {
 	non_text = { "@conceal", "Conceal", "Ignore", "TabLineFill",  "NonText", "SpecialKey", "Whitespace", "FoldColumn", "SignColumn", "CursorLineFold", "CursorLineSign", "EndOfBuffer" },
 
 	-- Syntax
-	keywords = { "Statement", "Conditional", "Repeat", "Keyword", "Exception", "@keyword", "@keyword.coroutine", "@keyword.function", "@keyword.operator", "@keyword.type", "@keyword.modifier", "@keyword.repeat", "@keyword.return", "@keyword.debug", "@keyword.exception", "@keyword.conditional", "@keyword.conditional.ternary", "@property.css", "@function.macro.commonlisp", "@operator.haskell" },
+	keywords = { "Statement", "Conditional", "Repeat", "Keyword", "Exception", "@keyword", "@keyword.coroutine", "@keyword.function", "@keyword.operator", "@keyword.type", "@keyword.modifier", "@keyword.repeat", "@keyword.return", "@keyword.debug", "@keyword.exception", "@keyword.conditional", "@keyword.conditional.ternary", "@property.css", "@function.macro.commonlisp" },
 	directives = { "PreProc", "Include", "Define", "Macro", "PreCondit", "@keyword.directive", "@keyword.directive.define", "@keyword.import" },
 	types = { "Type", "StorageClass", "Structure", "Typedef", "@type", "@type.builtin", "@type.definition", "@module", "@module.builtin", "@tag.css" },
 	values = { "Number", "Float", "Boolean", "@constant.builtin", "@boolean", "@number", "@number.float" },
