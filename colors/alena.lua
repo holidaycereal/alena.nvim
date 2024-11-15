@@ -40,7 +40,7 @@ local config = {
 
 		-- Syntax
 		keywords = { fg = "blue" },
-		directives = { fg = "red" },
+		directives = { fg = "blue" },
 		types = { fg = "magenta" },
 		constants = { fg = "orange" },
 		values = { fg = "orange" },
