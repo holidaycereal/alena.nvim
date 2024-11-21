@@ -1,5 +1,5 @@
 # alena.nvim
-![alena_theme](https://github.com/user-attachments/assets/a47b07da-c062-4dea-a8c3-dffa1ba26772)
+![alena_theme](https://github.com/user-attachments/assets/2414b017-8a76-4fbf-968f-e501b11d764d)
 
 my personal light colorscheme for neovim!
 
