@@ -1,7 +1,8 @@
 # alena.nvim
-![colorscheme](https://github.com/user-attachments/assets/5e762057-bd7a-4763-929e-88e101aec285)
 
 my personal light colorscheme for neovim!
+
+![alena-nvim-ss](https://github.com/user-attachments/assets/0a4294e4-0c8c-4e0b-acaf-904f13f468cf)
 
 designed to work best with `termguicolors` & `tree-sitter`.
 
